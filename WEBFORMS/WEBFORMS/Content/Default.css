@@ -1,0 +1,26 @@
+﻿    .tabela {
+        border-collapse: collapse;
+        width: 100%;
+        border:none;
+        color:#666;
+    }
+
+        .tabela th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            border: none;
+            padding:1rem;
+        }
+
+        .tabela td {
+            padding: 8px;
+            border: none;
+            padding: 1rem;
+        }
+
+        .tabela tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        .pagination{
+
+        }
