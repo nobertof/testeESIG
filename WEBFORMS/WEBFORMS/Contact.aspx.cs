@@ -13,5 +13,9 @@ namespace WEBFORMS
         {
 
         }
+        protected void btnCadastrarClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
