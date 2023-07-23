@@ -8,6 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Teste ESIG</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -17,6 +18,16 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
     <%: Styles.Render("~/Bundle") %>
+    <script>
+        function showAlert(title, mensagem, tipo) {
+            Swal.fire({
+                title: title,
+                text: mensagem,
+                icon: tipo,
+                confirmButtonText: 'OK'
+            });
+        }
+    </script>
 </head>
 <body>
     <form runat="server" class="mainForm">
@@ -35,6 +46,8 @@
                 <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Extras.js" />
+
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
             </Scripts>

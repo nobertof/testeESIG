@@ -3268,6 +3268,7 @@ fieldset[disabled] .btn-primary.focus {
   background-color: #5cb85c;
   border-color: #4cae4c;
 }
+
 .btn-success:focus,
 .btn-success.focus {
   color: #fff;
@@ -3287,6 +3288,14 @@ fieldset[disabled] .btn-primary.focus {
   background-image: none;
   border-color: #398439;
 }
+.btn-secondary {
+    color: #fff;
+    background-color: #666;
+}
+    .btn-secondary:hover {
+        color: #fff;
+        background-color: #444;
+    }
 .btn-success:active:hover,
 .btn-success.active:hover,
 .open > .dropdown-toggle.btn-success:hover,

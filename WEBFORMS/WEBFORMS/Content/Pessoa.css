@@ -1,0 +1,13 @@
+﻿.btnSubmitPessoa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+    .btnSubmitPessoa input[type="submit"] {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+.titleCadastro a{
+    margin-bottom:1rem;
+}
