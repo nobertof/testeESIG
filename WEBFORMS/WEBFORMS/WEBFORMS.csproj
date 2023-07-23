@@ -231,6 +231,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Dtos\CargoDto\CargoListDto.cs" />
+    <Compile Include="Dtos\PessoaDto\PessoaSalarioDto.cs" />
     <Compile Include="Dtos\PessoaDto\PessoaItemDto.cs" />
     <Compile Include="Views\CadastroPessoas.aspx.cs">
       <DependentUpon>CadastroPessoas.aspx</DependentUpon>
@@ -277,8 +278,6 @@
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\CargoListDto\" />
-    <Folder Include="Views\PessoaItemDto\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

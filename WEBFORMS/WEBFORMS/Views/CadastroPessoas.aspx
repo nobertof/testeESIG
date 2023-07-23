@@ -21,7 +21,7 @@
         <div class="col-md-12 col-lg-4">
             <asp:Label runat="server" Text="Telefone:" />
             <asp:TextBox runat="server" ID="txtTelefone" CssClass="form-control" />
-            <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="txtTelefone" Mask="(99)99999-9999" MaskType="Number" />
+            <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="txtTelefone" Mask="(99)9999-9999" MaskType="Number" />
         </div>
         <div class="col-md-12 col-lg-4">
             <asp:Label runat="server" Text="Data de nascimento:" />

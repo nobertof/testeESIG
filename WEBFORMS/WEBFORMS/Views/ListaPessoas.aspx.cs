@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,24 +13,24 @@ namespace WEBFORMS
     {
         protected void ExibirAlerta(string titulo, string mensagem, string tipo)
         {
-                ScriptManager.RegisterStartupScript(this, GetType(), "showAlert", $"showAlert('{titulo}', '{mensagem}', '{tipo}');", true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "showAlert", $"showAlert('{titulo}', '{mensagem}', '{tipo}');", true);
         }
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (gridView != null)
             {
-            PessoaModel pessoa = new PessoaModel();
-            gridView.DataSource = pessoa.GetList();
-            gridView.DataBind();
+                PessoaModel pessoa = new PessoaModel();
+                gridView.DataSource = pessoa.GetList();
+                gridView.DataBind();
             }
         }
         protected void GridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             if (gridView != null)
             {
-            gridView.PageIndex = e.NewPageIndex;
-            gridView.DataBind();
+                gridView.PageIndex = e.NewPageIndex;
+                gridView.DataBind();
             }
         }
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -41,7 +42,8 @@ namespace WEBFORMS
 
                 // Redirecionando para a pagina de cadastro/ edição de pessoas
                 Response.Redirect("CadastroPessoas.aspx?id=" + id);
-            }else if(e.CommandName == "Excluir")
+            }
+            else if (e.CommandName == "Excluir")
             {
                 // pegando o id da pessoa que vai ser removida
                 string id = e.CommandArgument.ToString();
@@ -52,6 +54,33 @@ namespace WEBFORMS
                     gridView.DataSource = pessoa.GetList();
                     gridView.DataBind();
                 }
+            }
+        }
+
+        protected async void CalcularSalarios(object sender, EventArgs e)
+        {
+            try
+            {
+                //Exibindo loading na tela
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "showLoading", "showLoading();", true);
+
+                PessoaModel pessoa = new PessoaModel();
+                string resultado = await pessoa.CalcularSalarios();
+                ExibirAlerta("Sucesso!", resultado, "success");
+                if (gridView != null)
+                {
+                    gridView.DataSource = pessoa.GetList();
+                    gridView.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                ExibirAlerta("Aviso!", ex.Message, "error");
+            }
+            finally
+            {
+                //Escondendo loading na tela
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "hideLoading", "hideLoading();", true);
             }
         }
     }
