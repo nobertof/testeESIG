@@ -1,13 +1,20 @@
 ﻿<%@ Page Title="Lista de pessoas" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListaPessoas.aspx.cs" Inherits="WEBFORMS._Default" Async="true" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h3 class="title">Pessoas 
+    <h3 class="title">Pessoas </h3>
+    <div class="optionsListaPessoas">
+        <div class="pesquisa">
+            <div >
+            <asp:Label runat="server" Text="Nome:" />
+            <asp:TextBox runat="server" ID="txtNome" CssClass="form-control" />
+                </div>
+            <asp:Button runat="server" ID="Button1" Text="Pesquisar" OnClick="PesquisarPessoa" CssClass="btn btn-secondary" />
+        </div>
         <div>
-            <asp:Button runat="server" ID="btnEnviar" Text="Calcular Salários" OnClick="CalcularSalarios"  CssClass="btn btn-secondary" />
+            <asp:Button runat="server" ID="btnEnviar" Text="Calcular Salários" OnClick="CalcularSalarios" CssClass="btn btn-secondary" />
             <a runat="server" href="CadastroPessoas.aspx" class="btn btn-success">+ Adicionar</a>
         </div>
-    </h3>
-
+    </div>
     <asp:GridView
         ID="gridView"
         runat="server"

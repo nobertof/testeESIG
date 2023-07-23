@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WEBFORMS.App_Data;
+using WEBFORMS.Views.PessoaDto;
 
 namespace WEBFORMS
 {
@@ -15,14 +17,54 @@ namespace WEBFORMS
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showAlert", $"showAlert('{titulo}', '{mensagem}', '{tipo}');", true);
         }
+        private DataTable ajustarListaDePessoas(List<PessoaListDto> pessoas)
+        {
+            DataTable dataTable = new DataTable();
+
+            // Definir as colunas do DataTable
+            dataTable.Columns.Add("Id", typeof(string));
+            dataTable.Columns.Add("Nome", typeof(string));
+            dataTable.Columns.Add("Cargo", typeof(string));
+            dataTable.Columns.Add("Salario", typeof(string));
+
+            // Adicionar as linhas ao DataTable com os valores do objeto Pessoa
+            foreach (PessoaListDto pessoa in pessoas)
+            {
+                DataRow row = dataTable.NewRow();
+                row["Id"] = pessoa.Id;
+                row["Nome"] = pessoa.Nome;
+                row["Cargo"] = pessoa.Cargo;
+                row["Salario"] = pessoa.Salario;
+                dataTable.Rows.Add(row);
+            }
+
+            return dataTable;
+        }
+        private void BindGridViewData()
+        {
+            if (ViewState["GridViewData"] != null)
+            {
+                // Se os dados da consulta estão armazenados no ViewState, utilize-os para popular a GridView
+                gridView.DataSource = (DataTable)ViewState["GridViewData"];
+                gridView.DataBind();
+            }
+            else
+            {
+                // Realize a consulta normalmente e armazene os dados no ViewState
+                PessoaModel pessoa = new PessoaModel();
+                DataTable listaPessoas = ajustarListaDePessoas(pessoa.GetList());
+                gridView.DataSource = listaPessoas;
+                ViewState["GridViewData"] = listaPessoas;
+                gridView.DataBind();
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (gridView != null)
+            if (!IsPostBack && gridView != null)
             {
-                PessoaModel pessoa = new PessoaModel();
-                gridView.DataSource = pessoa.GetList();
-                gridView.DataBind();
+                BindGridViewData();
             }
         }
         protected void GridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -30,7 +72,7 @@ namespace WEBFORMS
             if (gridView != null)
             {
                 gridView.PageIndex = e.NewPageIndex;
-                gridView.DataBind();
+                BindGridViewData();
             }
         }
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -81,6 +123,26 @@ namespace WEBFORMS
             {
                 //Escondendo loading na tela
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "hideLoading", "hideLoading();", true);
+            }
+        }
+
+        protected async void PesquisarPessoa(object sender, EventArgs e)
+        {
+            try
+            {
+                PessoaModel pessoa = new PessoaModel();
+                if (gridView != null)
+                {
+                    List<PessoaListDto> pessoas = pessoa.GetPessoaByNome(txtNome.Text);
+                    DataTable listaPessoas = ajustarListaDePessoas(pessoas.Any() ? pessoas : pessoa.GetList());
+                    gridView.DataSource = listaPessoas;
+                    ViewState["GridViewData"] = listaPessoas;
+                    gridView.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                ExibirAlerta("Aviso!", ex.Message, "error");
             }
         }
     }

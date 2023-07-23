@@ -57,6 +57,47 @@ namespace WEBFORMS.App_Data
                 }
             }
         }
+
+        public List<PessoaListDto> GetPessoaByNome(string nome)
+        {
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    List<PessoaListDto> pessoasList = new List<PessoaListDto>();
+                    string sql = $"select p.ID, p.NOME,c.Nome CARGO, (select s.salario_bruto from pessoa_salario s where s.pessoa_id=p.id) SALARIO from pessoa p inner join cargo c on c.Id = p.cargo_Id where p.nome like '{nome}%' order by p.ID";
+                    using (OracleCommand command = new OracleCommand(sql, connection))
+                    {
+                        using (OracleDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                //Preenchendo a lista de pessoas
+                                pessoasList.Add(
+                                    new PessoaListDto()
+                                    {
+                                        Id = Convert.ToInt32(reader["ID"]),
+                                        Nome = reader["NOME"].ToString(),
+                                        Cargo = reader["CARGO"].ToString(),
+                                        Salario = reader["SALARIO"].ToString() == "" ? "Não calculado" : reader["SALARIO"].ToString()
+                                    });
+
+
+                            }
+                            connection.Close();
+                            return pessoasList;
+                        }
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    throw new ArgumentException(ex.Message);
+                }
+            }
+        }
+
         public PessoaItemDto GetItem(long id)
         {
             using (OracleConnection connection = new OracleConnection(connectionString))
@@ -105,6 +146,7 @@ namespace WEBFORMS.App_Data
                 }
             }
         }
+        
         public string InsertAndUpdate(PessoaItemDto model)
         {
             using (OracleConnection connection = new OracleConnection(connectionString))

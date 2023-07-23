@@ -49,3 +49,19 @@
         background-color: #007bff;
         color: #fff;
     }
+
+.optionsListaPessoas{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    flex-direction:row;
+    margin-bottom:1rem;
+}
+
+.pesquisa {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: row;
+    gap:.25rem;
+}
