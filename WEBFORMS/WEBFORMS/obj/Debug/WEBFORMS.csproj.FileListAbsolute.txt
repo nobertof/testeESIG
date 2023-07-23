@@ -206,3 +206,23 @@ D:\Meus Documentos\documentos\programações\testeESIG\WEBFORMS\WEBFORMS\bin\Sys
 D:\Meus Documentos\documentos\programações\testeESIG\WEBFORMS\WEBFORMS\bin\System.Text.Json.xml
 D:\Meus Documentos\documentos\programações\testeESIG\WEBFORMS\WEBFORMS\bin\System.Threading.Tasks.Extensions.xml
 D:\Meus Documentos\documentos\programações\testeESIG\WEBFORMS\WEBFORMS\bin\System.ValueTuple.xml
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\AjaxControlToolkit.dll
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\Oracle.ManagedDataAccess.dll
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Buffers.dll
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Memory.dll
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Numerics.Vectors.dll
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Text.Encodings.Web.dll
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Text.Json.dll
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Threading.Tasks.Extensions.dll
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.ValueTuple.dll
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Buffers.xml
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Memory.xml
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Numerics.Vectors.xml
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Text.Encodings.Web.xml
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Text.Json.xml
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.Threading.Tasks.Extensions.xml
+C:\Projetos\Pessoais\testeESIG\WEBFORMS\WEBFORMS\bin\System.ValueTuple.xml
