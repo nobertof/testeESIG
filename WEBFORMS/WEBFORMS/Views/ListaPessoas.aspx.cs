@@ -103,8 +103,6 @@ namespace WEBFORMS
         {
             try
             {
-                //Exibindo loading na tela
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "showLoading", "showLoading();", true);
 
                 PessoaModel pessoa = new PessoaModel();
                 string resultado = await pessoa.CalcularSalarios();

@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="titleCadastro">
-        <a runat="server" href="ListaPessoas.aspx" class="btn btn-secondary"><span class="glyphicon glyphicon-arrow-left"></span>Voltar</a>
+        <a runat="server" href="ListaPessoas.aspx" class="btn btn-secondary"><span class="glyphicon glyphicon-arrow-left"></span> Voltar</a>
         <h3 class="title">+ Adicionar pessoa</h3>
     </div>
     <div class="row">

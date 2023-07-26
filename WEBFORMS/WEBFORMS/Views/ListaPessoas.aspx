@@ -11,7 +11,7 @@
             <asp:Button runat="server" ID="Button1" Text="Pesquisar" OnClick="PesquisarPessoa" CssClass="btn btn-secondary" />
         </div>
         <div>
-            <asp:Button runat="server" ID="btnEnviar" Text="Calcular Salários" OnClick="CalcularSalarios" CssClass="btn btn-secondary" />
+            <asp:Button runat="server" ID="btnEnviar" Text="Calcular Salários" OnClick="CalcularSalarios" OnClientClick="showLoading()" CssClass="btn btn-secondary" />
             <a runat="server" href="CadastroPessoas.aspx" class="btn btn-success">+ Adicionar</a>
         </div>
     </div>

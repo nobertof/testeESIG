@@ -87,6 +87,7 @@ namespace WEBFORMS
         {
             try
             {
+                string id = Request.QueryString["id"];
                 PessoaItemDto novaPessoa = new PessoaItemDto()
                 {
                     Nome = txtNome.Text,
@@ -99,11 +100,22 @@ namespace WEBFORMS
                     Cidade = txtCidade.Text,
                     Endereco = txtEndereco.Text
                 };
-
-                //Conferindo se a pessoa esta sendo editada ou cadastrada como nova
-                if (Request.QueryString["id"] != null)
+                if (String.IsNullOrEmpty(novaPessoa.Nome) ||
+                    String.IsNullOrEmpty(novaPessoa.Email) ||
+                    String.IsNullOrEmpty(novaPessoa.Cargo_Id) ||
+                    String.IsNullOrEmpty(novaPessoa.Telefone) ||
+                    String.IsNullOrEmpty(novaPessoa.Data_Nascimento) ||
+                    String.IsNullOrEmpty(novaPessoa.CEP) ||
+                    String.IsNullOrEmpty(novaPessoa.Pais) ||
+                    String.IsNullOrEmpty(novaPessoa.Cidade) ||
+                    String.IsNullOrEmpty(novaPessoa.Endereco))
                 {
-                    novaPessoa.Id = Convert.ToInt32(Request.QueryString["id"]);
+                    throw new ArgumentException($"Preencha todos os campos para realizar a operação!");
+                }
+                //Conferindo se a pessoa esta sendo editada ou cadastrada como nova
+                if (id != null)
+                {
+                    novaPessoa.Id = Convert.ToInt32(id);
                 }
 
                 PessoaModel pessoa = new PessoaModel();
